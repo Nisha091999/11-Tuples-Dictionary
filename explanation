@@ -1,0 +1,58 @@
+def calculate_bmi(weight, height):
+
+This line defines a function named calculate_bmi that takes two parameters: weight and height.
+The function calculates the BMI by dividing the weight in kilograms by the square of the height in meters.
+It returns the calculated BMI value.
+def sort_list(lst):
+
+This line defines another function called sort_list that takes a single parameter, lst, which is a list of individuals' data.
+The function sorts the list based on multiple criteria, including BMI, age, name, and gender.
+It uses the sorted() function and a lambda function as the key parameter to determine the sorting order.
+The lambda function specifies the order of sorting based on the values in the list: x[4] (gender), x[0] (name), x[1] (age), 
+and calculate_bmi(x[2], x[3]) (BMI calculated using the weight and height values).
+input_list = []
+
+This line initializes an empty list called input_list, which will store the input data of individuals.
+while True:
+
+This line starts an infinite loop to continuously receive user input until the user decides to stop.
+input_str = input("Enter name, age, weight, height, gender (or press Enter to stop): ")
+
+This line prompts the user to enter data for an individual in the specified format: name, age, weight, height, and gender.
+The user can press Enter without entering any value to stop the input process.
+if not input_str:
+
+This line checks if the input_str variable is empty, indicating that the user pressed Enter without entering any value.
+If the condition is true, it breaks out of the loop, terminating the input process.
+name, age, weight, height, gender = input_str.split(",")
+
+This line splits the input_str into separate values using the comma as the delimiter.
+It assigns the split values to individual variables: name, age, weight, height, and gender.
+age = int(age)
+
+This line converts the age variable from a string to an integer using the int() function.
+It ensures that the age value is represented as an integer data type.
+weight = int(weight)
+
+This line converts the weight variable from a string to an integer.
+It ensures that the weight value is represented as an integer data type.
+height = int(height)
+
+This line converts the height variable from a string to an integer.
+It ensures that the height value is represented as an integer data type.
+input_list.append((name, age, weight, height, gender))
+
+This line creates a tuple containing the individual's data and appends it to the input_list.
+The tuple consists of name, age, weight, height, and gender values.
+sorted_list = sort_list(input_list)
+
+This line calls the sort_list function and passes the input_list as the argument.
+It assigns the sorted result to the sorted_list variable.
+for item in sorted_list:
+
+This line starts a loop that iterates over each item in the sorted_list.
+print(",".join(str(x) for x in item))
+
+This line converts each element in the item tuple to a string using a generator expression: str(x) for x in item.
+It joins the string elements with commas using the ",".join() function.
+The resulting string is then printed to the console.
