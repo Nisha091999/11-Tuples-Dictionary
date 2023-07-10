@@ -1,0 +1,28 @@
+def calculate_bmi(weight, height):
+    return weight / ((height / 100) ** 2)
+
+
+def sort_list(lst):
+    sorted_list = sorted(lst, key=lambda x: (x[4], x[0], x[1], calculate_bmi(x[2], x[3])))
+
+    return sorted_list
+
+
+input_list = []
+
+while True:
+    input_str = input("Enter name, age, weight, height, gender (or press Enter to stop): ")
+    if not input_str:
+        break
+
+    name, age, weight, height, gender = input_str.split(",")
+    age = int(age)
+    weight = int(weight)
+    height = int(height)
+
+    input_list.append((name, age, weight, height, gender))
+
+sorted_list = sort_list(input_list)
+
+for item in sorted_list:
+    print(",".join(str(x) for x in item))
